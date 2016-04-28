@@ -8,6 +8,15 @@ public:
             {"", "M", "MM", "MMM"}
         };
         
-        return R[3][num/1000] + R[2][num%1000/100] + R[1][num%100/10] + R[0][num%10];
+        int n = 0;
+        string res = "";
+        
+        while(num != 0)
+        {
+            res = R[n++][num%10] + res;
+            num = num / 10;
+        }
+        
+        return res;
     }
 };
