@@ -9,37 +9,19 @@
 class Solution {
 public:
     ListNode* oddEvenList(ListNode* head) {
-        ListNode *odd, *even, *now, *even_st;
-        bool flag;
+        if(head == NULL) return head;
         
-        if(head == NULL || head -> next == NULL)
-            return head;
-            
-        odd = head;
-        even = head -> next;
-        even_st = even;
-        now = even -> next;
-        flag = true;
-        
-        while(now != NULL)
+        ListNode *odd = head, *even = head-> next, *even_st = even;
+
+        while(even != NULL && even -> next != NULL)
         {
-            if(flag)
-            {
-                odd -> next = now;
-                odd = now;
-            }
-            else
-            {
-                even -> next = now;
-                even = now;
-            }
-            flag = !flag;
-            now = now -> next;
+            odd -> next = even -> next;
+            odd = odd -> next;
+            even ->next = odd ->next;
+            even = even -> next;
         }
         
         odd -> next = even_st;
-        even -> next = NULL;
-        
         return head;
     }
 };
