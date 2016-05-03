@@ -1,8 +1,14 @@
 class Solution {
 public:
     int hammingWeight(uint32_t n) {
-        bitset<32> bs(n);
+        int res = 0;
         
-        return bs.count();
+        while(n != 0)
+        {
+            n &= n-1;  // 每次去掉一个1
+            res++;
+        }
+        
+        return res;
     }
 };
