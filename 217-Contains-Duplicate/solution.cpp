@@ -1,12 +1,12 @@
-#include <unordered_set>
+#include <unordered_map>
 class Solution {
 public:
     bool containsDuplicate(vector<int>& nums) {
-        std::unordered_set<int> tmp;
+        std::unordered_map<int,bool> tmp;
         
         for(auto i:nums)
-            if(tmp.find(i) == tmp.end())
-                tmp.insert(i);
+            if(!tmp[i])
+                tmp[i] = true;
             else
                 return true;
         
