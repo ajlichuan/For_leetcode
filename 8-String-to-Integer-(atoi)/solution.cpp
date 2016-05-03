@@ -20,8 +20,9 @@ public:
         
         for(; i < str.size(); i++)
         {
-            if(str[i] >= '0' && str[i] - '0' <= 9)
-                res = res * 10 + str[i] - '0';
+            int tmp = str[i] - '0';
+            if(tmp >= 0 && tmp <= 9)
+                res = res * 10 + tmp;
             else
                 break;
                 
