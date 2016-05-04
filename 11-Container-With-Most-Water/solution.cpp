@@ -8,7 +8,7 @@ public:
         //while(height[++left] == 0);
         //while(height[--right] == 0);
        
-        while(left != right)
+        while(left < right)
         {
             if(height[left] < height[right])
             {
