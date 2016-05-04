@@ -2,11 +2,11 @@ class Solution {
 public:
     int maxArea(vector<int>& height) {
         int maxA = 0;
-        int left = -1;
-        int right = height.size();
+        int left = 0;
+        int right = height.size()-1;
        
-        while(height[++left] == 0);
-        while(height[--right] == 0);
+        //while(height[++left] == 0);
+        //while(height[--right] == 0);
        
         while(left != right)
         {
