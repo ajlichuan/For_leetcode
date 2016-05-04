@@ -11,16 +11,32 @@ public:
     ListNode *detectCycle(ListNode *head) {
         ListNode *fast, *slow;
         
+        int cnt = 1, lim = 1;
         fast = head;
         slow = head;
         
         do{
-            if(fast == NULL || fast->next == NULL) return NULL;
+            if(fast == NULL) return NULL;
             
-            slow = slow -> next;
-            fast = fast -> next -> next;
+            if(cnt == lim)
+            {
+                cnt = 1;
+                lim = lim * 2;
+                slow = fast;
+            }
+            else
+            {
+                cnt ++;
+            }
+            fast = fast -> next;
+            
         } while(slow != fast);
         
+        fast = head;
+        
+        for(int i = 0; i < cnt; i++)
+            fast = fast -> next;
+            
         slow = head;
         
         while(slow != fast)
