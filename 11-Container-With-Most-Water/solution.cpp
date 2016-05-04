@@ -1,50 +1,28 @@
 class Solution {
 public:
     int maxArea(vector<int>& height) {
-        vector<pair<int,int>> h(height.size());
-        
-        for(int i = 0; i < height.size(); i++)
-        {
-            h[i].first = height[i];
-            h[i].second = i;
-        }
-        
-        sort(h.begin(),h.end());
-        
-        int n = h.size()-1;
-        int maxi = h[n].second;
-        int mini = h[n].second;
         int maxA = 0;
-        
-        for(n--; n >= 0; n--)
+        int left = -1;
+        int right = height.size();
+       
+        while(height[++left] == 0);
+        while(height[--right] == 0);
+       
+        while(left != right)
         {
-            if(h[n].first == 0) break;
-            
-            int tmpi = h[n].second;
-            if(tmpi > maxi)
+            if(height[left] < height[right])
             {
-                maxi = tmpi;
-                if((tmpi - mini) * h[n].first > maxA)
-                    maxA = (tmpi - mini) * h[n].first;
-                    
-                continue;
+                if(maxA < (right - left) * height[left]) maxA = (right - left) * height[left];
+                int tmp = height[left];
+                while(height[++left] <= tmp && right > left);
             }
-            
-            if(tmpi < mini)
+            else
             {
-                mini = tmpi;
-                if((maxi - tmpi) * h[n].first > maxA)
-                    maxA = (maxi - tmpi) * h[n].first;
-                    
-                continue;
+                if(maxA < (right - left) * height[right]) maxA = (right - left) * height[right];
+                int tmp = height[right];
+                while(height[--right] <= tmp && right > left);
             }
-            
-            int di = max(tmpi - mini, maxi - tmpi);
-            
-            if(di * h[n].first > maxA)
-                maxA = di * h[n].first;
-        }
-        
-        return maxA;
+       }
+       return maxA;
     }
 };
