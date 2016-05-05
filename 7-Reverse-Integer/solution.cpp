@@ -5,15 +5,9 @@ public:
         
         while(x != 0)
         {
-            if(res > INT_MAX/10 || res < INT_MIN/10)
-                return 0;
-            else
-            {
-                if(res == INT_MAX/10 && x % 10 > INT_MAX % 10) return 0;
-                if(res == INT_MIN/10 && x % 10 < INT_MIN % 10) return 0;
-            }
-            
+            int tmp = res;
             res = res * 10 + x % 10;
+            if(res / 10 != tmp) return 0;
             x /= 10;
         }
         
