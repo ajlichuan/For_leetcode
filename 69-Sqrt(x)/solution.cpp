@@ -3,25 +3,21 @@ public:
 	int mySqrt(int x) {
 		if (x < 2) return x;
 
-		int dp = 4;
-		int pow = 0;
-
-		while (1 << (pow * 2) <= x >> (2 * dp)) pow = pow + dp;
-
-		int res = 0;
-
-		do
+		int left = 1, right = x;
+		int mid = left/2.0 + right/2.0;
+		
+		while(mid > left)
 		{
-			int tmp = 0, tmpx = (x - res * res) >> pow;
-
-			while (tmp < (1 << dp) && ((tmp * tmp) << pow) + 2 * res * tmp <= tmpx) tmp++;
-
-			res += (tmp - 1) << pow;
-
-			pow -= 4;
-
-		} while (pow >= 0);
-
-		return res;
+		    if(mid == x / mid) return mid;
+		    
+		    if(mid > x / mid)
+		        right = mid;
+		    else
+		        left = mid;
+		        
+		    mid = left/2.0 + right/2.0;
+		}
+		
+		return mid;
 	}
 };
