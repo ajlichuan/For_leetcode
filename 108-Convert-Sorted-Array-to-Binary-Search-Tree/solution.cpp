@@ -9,16 +9,14 @@
  */
 class Solution {
 public:
-    vector<int> SA;
-public:
-    TreeNode* loop(int st, int ed) {
+    TreeNode* loop(int st, int ed, vector<int>& nums) {
         if(ed >= st)
         {
             int mid = (st+ed+1)/2;
-            TreeNode* root = new TreeNode(SA[mid]);
+            TreeNode* root = new TreeNode(nums[mid]);
             
-            root->left = loop(st, mid-1);
-            root->right = loop(mid+1, ed);
+            root->left = loop(st, mid-1, nums);
+            root->right = loop(mid+1, ed, nums);
             
             return root;
         }
@@ -27,10 +25,6 @@ public:
     
 public:
     TreeNode* sortedArrayToBST(vector<int>& nums) {
-        if(nums.size() == 0) return NULL;
-        
-        SA = nums;
-
-        return loop(0, nums.size()-1);
+        return loop(0, nums.size()-1, nums);
     }
 };
