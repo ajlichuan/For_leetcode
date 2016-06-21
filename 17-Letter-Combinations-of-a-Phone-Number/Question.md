@@ -23,18 +23,18 @@ Although the above answer is in lexicographical order, your answer could be in a
 
 <div>
 
-<div id="company_tags" class="btn btn-xs btn-warning">Show Company Tags</div>
+<div id="company_tags" class="btn btn-xs btn-warning">Hide Company Tags</div>
 
-<span class="hidebutton">[Amazon](/company/amazon/) [Dropbox](/company/dropbox/) [Facebook](/company/facebook/) [Google](/company/google/) [Uber](/company/uber/)</span></div>
-
-<div>
-
-<div id="tags" class="btn btn-xs btn-warning">Show Tags</div>
-
-<span class="hidebutton">[Backtracking](/tag/backtracking/) [String](/tag/string/)</span></div>
+<span class="hidebutton" style="display: inline;">[Amazon](/company/amazon/) [Dropbox](/company/dropbox/) [Facebook](/company/facebook/) [Google](/company/google/) [Uber](/company/uber/)</span></div>
 
 <div>
 
-<div id="similar" class="btn btn-xs btn-warning">Show Similar Problems</div>
+<div id="tags" class="btn btn-xs btn-warning">Hide Tags</div>
 
-<span class="hidebutton">[(M) Generate Parentheses](/problems/generate-parentheses/) [(M) Combination Sum](/problems/combination-sum/)</span></div>
+<span class="hidebutton" style="display: inline;">[Backtracking](/tag/backtracking/) [String](/tag/string/)</span></div>
+
+<div>
+
+<div id="similar" class="btn btn-xs btn-warning">Hide Similar Problems</div>
+
+<span class="hidebutton" style="display: inline;">[(M) Generate Parentheses](/problems/generate-parentheses/) [(M) Combination Sum](/problems/combination-sum/)</span></div>
