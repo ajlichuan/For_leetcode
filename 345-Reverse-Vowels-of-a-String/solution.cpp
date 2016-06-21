@@ -5,8 +5,32 @@ public:
         
         while(f < l)
         {
-            while(f < l && s[f] != 'a' && s[f] != 'e' && s[f] != 'i' && s[f] != 'o' && s[f] != 'u' && s[f] != 'A' && s[f] != 'E' && s[f] != 'I' && s[f] != 'O' && s[f] != 'U') f++;
-            while(f < l && s[l] != 'a' && s[l] != 'e' && s[l] != 'i' && s[l] != 'o' && s[l] != 'u' && s[l] != 'A' && s[l] != 'E' && s[l] != 'I' && s[l] != 'O' && s[l] != 'U') l--;
+            while(true)
+            {  
+                char tch;
+                if(s[f] < 'a')
+                    tch = s[f] - 'A' + 'a';
+                else
+                    tch = s[f];
+                
+                if(f < l && tch != 'a' && tch != 'e' && tch != 'i' && tch != 'o' && tch != 'u')
+                    f++;
+                else
+                    break;
+            }
+            while(true)
+            {
+                char tch;
+                if(s[l] < 'a')
+                    tch = s[l] - 'A' + 'a';
+                else
+                    tch = s[l];
+                
+                if(f < l && tch != 'a' && tch != 'e' && tch != 'i' && tch != 'o' && tch != 'u')
+                    l--;
+                else
+                    break;
+            }
             
             if(f < l)
             {
