@@ -3,11 +3,11 @@ public:
     int l,h,maxp;
     
 public:
-    int findpath(int i, int j, vector<vector<int>>& matrix, vector<vector<int>>& len)
+    int findpath(int i, int j, vector<vector<int>>& matrix, int *len)
     {
         int lenp = 1;
         
-        if(len[i][j] != -1) return len[i][j];
+        if(len[i*l+j] != -1) return len[i*l+j];
         
         if(i > 0 && matrix[i-1][j] > matrix[i][j])
         {
@@ -29,7 +29,7 @@ public:
             lenp = max(lenp, 1 + findpath(i,j+1,matrix,len));
         }
         
-        len[i][j] = lenp;
+        len[i*l+j] = lenp;
         
         maxp = max(maxp, lenp);
         
@@ -42,8 +42,8 @@ public:
         if(h == 0) return 0;
         l = matrix[0].size();
         
-        vector<int> lencell(l, -1);
-        vector<vector<int>> len(h, lencell);
+        int len[h*l];
+        memset(len,-1,sizeof(len));
         
         maxp = 0;
         
