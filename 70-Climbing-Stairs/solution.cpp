@@ -2,7 +2,7 @@ class Solution {
 public:
     int loop(int n, int* res)
     {
-        if(n <= 2) return n;
+        if(n <= 3) return n;
         if(res[n] != -1) return res[n];
         
         res[n] = loop(n-1, res) + loop(n-2, res);
