@@ -3,38 +3,22 @@ public:
     string getHint(string secret, string guess) {
         int A = 0, B = 0;
         int len = secret.size();
+        int sec[10]={0}, gue[10]={0};
         
         for(int i=0; i<len; i++)
         {
             if(secret[i] == guess[i])
                 A++;
+            sec[secret[i]-'0']++;
+            gue[guess[i]-'0']++;
         }
         
-        int i=0, j=0;
-        
-        sort(secret.begin(), secret.end());
-        sort(guess.begin(), guess.end());
-        while(i < len && j < len)
+        for(int i = 0; i < 10; i++)
         {
-            if(secret[i] == guess[j])
-            {
-                B++;
-                i++;
-                j++;
-            }
-            else if(secret[i] > guess[j])
-            {
-                j++;
-            }
-            else
-            {
-                i++;
-            }
+            B += min(sec[i],gue[i]);
         }
         
-        B -= A;
-        
-        string res = to_string(A) + 'A' + to_string(B) + 'B';
+        string res = to_string(A) + 'A' + to_string(B-A) + 'B';
 
         return res;
     }
