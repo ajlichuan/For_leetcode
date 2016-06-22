@@ -7,7 +7,7 @@ public:
         for(int cnt = 0; cnt < len; cnt++)
         {
             if(pos[nums[cnt]] != 0 && cnt - pos[nums[cnt]] + 1 <= k)
-                    return true;
+                return true;
 
             pos[nums[cnt]] = cnt+1;
         }
