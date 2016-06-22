@@ -4,14 +4,14 @@ public:
         int len = nums.size();
         if(len <= 1) return len;
         
-        int cnt = 0;
+        int cnt = 1;
         
         for(int i = 1; i < len; i++)
         {
             if(nums[i] != nums[i-1])
-                nums[++cnt] = nums[i];
+                nums[cnt++] = nums[i];
         }
         
-        return cnt+1;
+        return cnt;
     }
 };
