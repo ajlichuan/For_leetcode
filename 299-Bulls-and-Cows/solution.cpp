@@ -34,43 +34,8 @@ public:
         
         B -= A;
         
-        string res;
-        if(A < 10)
-        {
-            res += '0'+A;
-        }
-        else
-        {
-            int pow = 1;
-            
-            while(pow*10 <= A) pow *= 10;
-            while(pow!=0)
-            {
-                res += A/pow+'0';
-                A = A%pow;
-                pow /= 10;
-            }
-        }
-        res += 'A';
-        
-        if(B < 10)
-        {
-            res += '0'+B;
-        }
-        else
-        {
-            int pow = 1;
-            
-            while(pow*10 <= B) pow *= 10;
-            while(pow!=0)
-            {
-                res += B/pow+'0';
-                B = B%pow;
-                pow /= 10;
-            }
-        }
-        res += 'B';
-        
+        string res = to_string(A) + 'A' + to_string(B) + 'B';
+
         return res;
     }
 };
