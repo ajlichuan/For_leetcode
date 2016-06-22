@@ -23,9 +23,8 @@ public:
         
         while(x != 0)
         {
-            int tmp = x/10;
-            num[cnt++] = x-tmp*10;
-            x = tmp;
+            num[cnt++] = x%10;
+            x /= 10;
         }
         
         for(int i = 0; i<cnt/2; i++)
