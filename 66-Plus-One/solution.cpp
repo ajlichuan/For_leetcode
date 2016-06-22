@@ -2,9 +2,8 @@ class Solution {
 public:
     vector<int> plusOne(vector<int>& digits) {
         int cnt;
-        bool plus = true;
         
-        for(cnt = digits.size()-1; plus && cnt >= 0; cnt--)
+        for(cnt = digits.size()-1; cnt >= 0; cnt--)
         {
             if(digits[cnt] == 9)
             {
@@ -13,12 +12,11 @@ public:
             else
             {
                 digits[cnt]++;
-                plus = false;
+                return digits;
             }
         }
         
-        if(plus)
-            digits.insert(digits.begin(),1);
+        digits.insert(digits.begin(),1);
         
         return digits;
     }
