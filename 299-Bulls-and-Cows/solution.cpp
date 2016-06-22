@@ -43,7 +43,7 @@ public:
         {
             int pow = 1;
             
-            while(pow*10 < A) pow *= 10;
+            while(pow*10 <= A) pow *= 10;
             while(pow!=0)
             {
                 res += A/pow+'0';
