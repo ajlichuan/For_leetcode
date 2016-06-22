@@ -41,16 +41,15 @@ public:
         }
         else
         {
-            string tmp;
+            int pow = 1;
             
-            while(A!=0)
+            while(pow*10 < A) pow *= 10;
+            while(pow!=0)
             {
-                tmp += '0' + A%10;
-                A /= 10;
+                res += A/pow+'0';
+                A = A%pow;
+                pow /= 10;
             }
-            
-            for(int i=tmp.size()-1; i>=0; i--)
-                res+=tmp[i];
         }
         res += 'A';
         
@@ -60,16 +59,15 @@ public:
         }
         else
         {
-            string tmp;
+            int pow = 1;
             
-            while(B!=0)
+            while(pow*10 <= B) pow *= 10;
+            while(pow!=0)
             {
-                tmp += '0' + B%10;
-                B /= 10;
+                res += B/pow+'0';
+                B = B%pow;
+                pow /= 10;
             }
-            
-            for(int i=tmp.size()-1; i>=0; i--)
-                res+=tmp[i];
         }
         res += 'B';
         
