@@ -3,8 +3,7 @@ private:
     vector<int> data;
 
 public:
-    NumArray(vector<int> &nums) {
-        data = nums;
+    NumArray(vector<int> &nums) : data(nums) {
         for(int i = 1; i < nums.size(); i++)
             data[i] = data[i-1] + nums[i];
     }
