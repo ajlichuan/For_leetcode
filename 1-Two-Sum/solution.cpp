@@ -6,16 +6,16 @@ public:
         
         for(int i = 0; i < len; i++)
         {
-            if(n[target-nums[i]] != 0)
+            if(n.find(target-nums[i]) != n.end())
             {
                 vector<int> tmp(2);
-                tmp[0] = n[target-nums[i]]-1;
+                tmp[0] = n[target-nums[i]];
                 tmp[1] = i;
                 return tmp;
             }
             else
             {
-                n[nums[i]] = i+1;
+                n[nums[i]] = i;
             }
         }
         
