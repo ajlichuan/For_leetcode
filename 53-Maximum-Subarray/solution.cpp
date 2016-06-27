@@ -9,19 +9,8 @@ public:
         
         for(int i = 1; i < len; i++)
         {
-            if(sum < 0)
-            {
-                if(nums[i] > sum)
-                {
-                    sum = nums[i];
-                    maxn = max(maxn, sum);
-                }
-            }
-            else
-            {
-                sum += nums[i];
-                maxn = max(maxn, sum);
-            }
+            sum = max(sum+nums[i], nums[i]);
+            maxn = max(sum, maxn);
         }
         return maxn;
     }
