@@ -1,29 +1,21 @@
 class Solution {
 public:
 	int maxProfit(vector<int>& prices) {
-		int buy = 0, sell = 0, emp = 0;
-		bool isbuy = false;
-		int buypr;
+	    if(prices.size() == 0) return 0;
+		int buy = -prices[0], sell = 0, emp = 0;
 		for (auto pr : prices)
 		{
 			int tmpsell = sell;
 			// for sell
-			if (isbuy)
-			{
-				sell = buy + pr - buypr;
-			}
+			sell = buy + pr;
 
 			// for buy
-			if (!isbuy || emp - pr > buy - buypr)
-			{
-				buy = emp;
-				buypr = pr;
-				isbuy = true;
-			}
-
+			if(emp - pr > buy)
+				buy = emp - pr;
+			
 			// for emp
 			emp = max(emp, tmpsell);
 		}
-		return max(buy, max(emp, sell));
+		return max(emp, sell);
 	}
 };
