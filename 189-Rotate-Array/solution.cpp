@@ -7,9 +7,8 @@ public:
         auto it = nums.begin();
         for(int i = 0; i <len-k; i++,++it);
         
-        vector<int> res(it, nums.end());
-        res.insert(res.end(),nums.begin(),it);
-        
-        nums.swap(res);
+        reverse(nums.begin(),it);
+        reverse(it,nums.end());
+        reverse(nums.begin(),nums.end());
     }
 };
