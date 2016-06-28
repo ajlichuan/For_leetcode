@@ -18,12 +18,18 @@ You may assume no duplicate exists in the array.
 
 <div>
 
-<div id="tags" class="btn btn-xs btn-warning">Show Tags</div>
+<div id="company_tags" class="btn btn-xs btn-warning">Hide Company Tags</div>
 
-<span class="hidebutton">[Array](/tag/array/) [Binary Search](/tag/binary-search/)</span></div>
+<span class="hidebutton" style="display: inline;">[Microsoft](/company/microsoft/)</span></div>
 
 <div>
 
-<div id="similar" class="btn btn-xs btn-warning">Show Similar Problems</div>
+<div id="tags" class="btn btn-xs btn-warning">Hide Tags</div>
 
-<span class="hidebutton">[(H) Search in Rotated Sorted Array](/problems/search-in-rotated-sorted-array/) [(H) Find Minimum in Rotated Sorted Array II](/problems/find-minimum-in-rotated-sorted-array-ii/)</span></div>
+<span class="hidebutton" style="display: inline;">[Array](/tag/array/) [Binary Search](/tag/binary-search/)</span></div>
+
+<div>
+
+<div id="similar" class="btn btn-xs btn-warning">Hide Similar Problems</div>
+
+<span class="hidebutton" style="display: inline;">[(H) Search in Rotated Sorted Array](/problems/search-in-rotated-sorted-array/) [(H) Find Minimum in Rotated Sorted Array II](/problems/find-minimum-in-rotated-sorted-array-ii/)</span></div>
