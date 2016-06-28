@@ -17,7 +17,7 @@ public:
             dungeon[i][n-1] = max(1, dungeon[i+1][n-1] - dungeon[i][n-1]);
             for(int j = n-2; j >= 0; j--)
             {
-                dungeon[i][j] = min(max(1, dungeon[i+1][j] - dungeon[i][j]), max(1, dungeon[i][j+1] - dungeon[i][j]));
+                dungeon[i][j] = max(1, min(dungeon[i+1][j], dungeon[i][j+1])-dungeon[i][j]);
             }
         }
         
