@@ -11,37 +11,35 @@ public:
     void connect(TreeLinkNode *root) {
         if(root == NULL) return;
         
-        queue<pair<TreeLinkNode*, int>> q;
+        queue<TreeLinkNode*> q;
         TreeLinkNode** nxt = &root;
         
-        q.push(make_pair(root,0));
-        
-        int last_level = 0, level;
-        pair<TreeLinkNode*, int> tmp;
+        q.push(root);
+        q.push(NULL);
+        TreeLinkNode* tmp;
         
         while(!q.empty())
         {
-            tmp = q.front();
+            root = q.front();
             q.pop();
-            root = tmp.first;
-            level = tmp.second;
             
-            if(level > last_level)
+            *nxt = root;
+            
+            if(root == NULL)
             {
-                *nxt = NULL;
-                last_level = level;
+                q.push(NULL);
+                nxt = &tmp;
+                if(q.size() <= 1) break;
+                continue;
             }
-            else
-                *nxt = root;
             
             nxt = &root->next;
             
             if(root->left != NULL)
-                q.push(make_pair(root->left, level+1));
+                q.push(root->left);
             if(root->right != NULL)
-                q.push(make_pair(root->right, level+1));
+                q.push(root->right);
+            
         }
-        
-        *nxt = NULL;
     }
 };
