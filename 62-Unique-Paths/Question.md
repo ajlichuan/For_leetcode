@@ -34,6 +34,6 @@ Above is a 3 x 7 grid. How many possible unique paths are there?
 
 <div>
 
-<div id="similar" class="btn btn-xs btn-warning">Show Similar Problems</div>
+<div id="similar" class="btn btn-xs btn-warning">Hide Similar Problems</div>
 
-<span class="hidebutton">[(M) Unique Paths II](/problems/unique-paths-ii/) [(M) Minimum Path Sum](/problems/minimum-path-sum/) [(H) Dungeon Game](/problems/dungeon-game/)</span></div>
+<span class="hidebutton" style="display: inline; opacity: 0.429549;">[(M) Unique Paths II](/problems/unique-paths-ii/) [(M) Minimum Path Sum](/problems/minimum-path-sum/) [(H) Dungeon Game](/problems/dungeon-game/)</span></div>
