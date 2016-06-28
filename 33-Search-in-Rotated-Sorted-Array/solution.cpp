@@ -19,7 +19,7 @@ public:
         else
         {
             int i = 1;
-            while(i < len && nums[i] >= min) i++;
+            while(i < len && nums[i] > min) i++;
             while(i < len && nums[i] <= target)
                 if(nums[i++] == target)
                     return i-1;
