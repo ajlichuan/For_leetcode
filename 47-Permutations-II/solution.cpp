@@ -1,47 +1,29 @@
 class Solution {
 private:
+    vector<vector<int> >res;
     int len;
-    vector<vector<int>> res;
-    unordered_map<int,int> data;
     
-    void helper(int cnt, int tres[])
-    {
-        if(cnt == len-1)
-        {
-            for(auto it = data.begin(); it != data.end(); ++it)
-            {
-                if((*it).second > 0)
-                {
-                    tres[cnt] = (*it).first;
-                    res.push_back(vector<int>(tres, tres+len));
-                    break;
-                }
-            }
+public:
+    void helper(int cnt, vector<int> nums) {
+        if (cnt == len-1) {
+            res.push_back(nums);
+            return;
         }
-        else
+        for (int i = cnt; i < len; i++)
         {
-            for(auto it = data.begin(); it != data.end(); ++it)
+            if (cnt == i || nums[cnt] != nums[i])
             {
-                if((*it).second > 0)
-                {
-                    tres[cnt] = (*it).first;
-                    (*it).second--;
-                    helper(cnt+1, tres);
-                    (*it).second++;
-                }
+                swap(nums[cnt], nums[i]);
+                helper(cnt+1, nums);
             }
         }
     }
-    
-public:
-    vector<vector<int>> permuteUnique(vector<int>& nums) {
+    vector<vector<int>> permuteUnique(vector<int> &nums) {
         len = nums.size();
-        int tres[len];
         
-        for(auto n : nums)
-            data[n]++;
+        sort(nums.begin(), nums.end());
         
-        helper(0, tres);
+        helper(0, nums);
         
         return res;
     }
