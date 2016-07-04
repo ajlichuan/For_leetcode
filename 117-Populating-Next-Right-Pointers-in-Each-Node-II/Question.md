@@ -39,16 +39,16 @@ After calling your function, the tree should look like:
 
 <div id="company_tags" class="btn btn-xs btn-warning">Hide Company Tags</div>
 
-<span class="hidebutton" style="display: inline; opacity: 0.0129133;">[Bloomberg](/company/bloomberg/) [Facebook](/company/facebook/) [Microsoft](/company/microsoft/)</span></div>
+<span class="hidebutton" style="display: inline;">[Bloomberg](/company/bloomberg/) [Facebook](/company/facebook/) [Microsoft](/company/microsoft/)</span></div>
 
 <div>
 
-<div id="tags" class="btn btn-xs btn-warning">Show Tags</div>
+<div id="tags" class="btn btn-xs btn-warning">Hide Tags</div>
 
-<span class="hidebutton">[Tree](/tag/tree/) [Depth-first Search](/tag/depth-first-search/)</span></div>
+<span class="hidebutton" style="display: inline;">[Tree](/tag/tree/) [Depth-first Search](/tag/depth-first-search/)</span></div>
 
 <div>
 
-<div id="similar" class="btn btn-xs btn-warning">Show Similar Problems</div>
+<div id="similar" class="btn btn-xs btn-warning">Hide Similar Problems</div>
 
-<span class="hidebutton">[(M) Populating Next Right Pointers in Each Node](/problems/populating-next-right-pointers-in-each-node/)</span></div>
+<span class="hidebutton" style="display: inline;">[(M) Populating Next Right Pointers in Each Node](/problems/populating-next-right-pointers-in-each-node/)</span></div>
