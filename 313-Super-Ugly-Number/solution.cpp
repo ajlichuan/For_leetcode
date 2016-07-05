@@ -2,10 +2,14 @@ class Solution {
 public:
     int nthSuperUglyNumber(int n, vector<int>& primes) {
         int plen = primes.size();
-        vector<int> cmp(primes);
-        vector<int> pos(plen,0);
+        int cmp[plen];
+        int pos[plen];
         vector<int> st{1};
         n--;
+        
+        memset(pos, 0, sizeof(pos));
+        for(int i = 0; i < plen; i++)
+            cmp[i] = primes[i];
         
         while(n>0)
         {
