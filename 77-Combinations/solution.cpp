@@ -1,33 +1,30 @@
 class Solution {
 private:
-    vector<vector<int>> res;
-    int maxk;
-
-    void helper(int k, int st, int ed, vector<int>& cell)
+    void helper(int i, int k, int st, int ed, vector<int>& cell, vector<vector<int>>& res)
     {
-        if(maxk == k)
+        if(i == k)
         {
-            for(int i = st; i <= ed; i++)
+            for(int j = st; j <= ed; j++)
             {
-                cell[k-1] = i;
+                cell[i] = j;
                 res.push_back(cell);
             }
         }
         else
         {
-            for(int i = st; i <= ed - maxk + k; i++)
+            for(int j = st; j <= ed; j++)
             {
-                cell[k-1] = i;
-                helper(k+1,i+1,ed,cell);
+                cell[i] = j;
+                helper(i+1, k, j+1, ed+1, cell, res);
             }
         }
     }
 public:
     vector<vector<int>> combine(int n, int k) {
         vector<int> cell(k,0);
-        maxk = k;
-
-        helper(1, 1, n, cell);
+        vector<vector<int>> res;
+        
+        helper(0, k-1, 1, n-k+1, cell, res);
         
         return res;
     }
