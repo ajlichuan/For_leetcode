@@ -2,18 +2,12 @@ class Solution {
 public:
     void sortColors(vector<int>& nums) {
         int len = nums.size();
-        int i,j,tmp;
+        int zero = 0,two = len-1;
         
-        for(int c = 0; c < 2; c++)
+        for(int i = 0; i <= two; i++)
         {
-            i = 0; j = len-1;
-            while(i < j)
-            {
-                while(i < j && nums[i] <= c) i++;
-                while(i < j && nums[j] > c) j--;
-                tmp = nums[i]; nums[i] = nums[j]; nums[j] = tmp;
-                i++; j--;
-            }
+            while(nums[i] == 2 && i < two) swap(nums[i],nums[two--]);
+            while(nums[i] == 0 && zero < i) swap(nums[i],nums[zero++]);
         }
     }
 };
