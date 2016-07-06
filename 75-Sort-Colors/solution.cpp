@@ -2,7 +2,7 @@ class Solution {
 public:
     void sortColors(vector<int>& nums) {
         int len = nums.size();
-        int i,j,tmp,lasti;
+        int i,j,tmp;
         
         for(int c = 0; c < 2; c++)
         {
