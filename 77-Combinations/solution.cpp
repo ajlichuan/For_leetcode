@@ -1,30 +1,31 @@
 class Solution {
-private:
-    void helper(int i, int k, int st, int ed, vector<int>& cell, vector<vector<int>>& res)
-    {
-        if(i == k)
-        {
-            for(int j = st; j <= ed; j++)
-            {
-                cell[i] = j;
-                res.push_back(cell);
-            }
-        }
-        else
-        {
-            for(int j = st; j <= ed; j++)
-            {
-                cell[i] = j;
-                helper(i+1, k, j+1, ed+1, cell, res);
-            }
-        }
-    }
 public:
     vector<vector<int>> combine(int n, int k) {
         vector<int> cell(k,0);
         vector<vector<int>> res;
         
-        helper(0, k-1, 1, n-k+1, cell, res);
+        for(int i = 0; i < k; i++)
+        {
+            cell[i] = i+1;
+        }
+        res.push_back(cell);
+        
+        while(true)
+        {
+            int i;
+            for(i = 0; i < k; i++)
+            {
+                if(++cell[k-1-i] <= n-i)
+                    break;
+            }
+            if(i == k) break;
+            for(--i; i>=0; i--)
+            {
+                cell[k-1-i] = cell[k-2-i]+1;
+            }
+            
+            res.push_back(cell);
+        }
         
         return res;
     }
