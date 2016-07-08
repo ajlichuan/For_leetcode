@@ -17,24 +17,25 @@
  */
 class Solution {
 private:
-    TreeNode* BST(ListNode* head, int len, ListNode* &last)
+    TreeNode* BST(ListNode* &head, int len)
     {
         if(len == 0)
         {
-            last = head;
             return NULL;
         }
         if(len == 1)
         {
-            last = head->next;
-            return new TreeNode(head->val);
+            int val = head->val;
+            head = head->next;
+            return new TreeNode(val);
         }
         
         int lenleft = len/2;
-        TreeNode* left = BST(head, lenleft, last);
-        TreeNode* root = new TreeNode(last->val);
+        TreeNode* left = BST(head, lenleft);
+        TreeNode* root = new TreeNode(head->val);
         root->left = left;
-        root->right = BST(last->next, len-1-lenleft, last);
+        head = head->next;
+        root->right = BST(head, len-1-lenleft);
         
         return root;
     }
@@ -47,6 +48,6 @@ public:
             len++;
             it = it->next;
         }
-        return BST(head, len, head);
+        return BST(head, len);
     }
 };
