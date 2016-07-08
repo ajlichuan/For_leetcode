@@ -1,19 +1,16 @@
 class Solution {
 public:
     vector<vector<int>> subsets(vector<int>& nums) {
-        vector<vector<int>> res;
-        vector<int> cell;
-        res.push_back(cell);
         int len = nums.size();
+        int mlen = pow(2,len);
+        vector<vector<int>> res(mlen, vector<int>());
+        
         for(int i = 0; i < len; i++)
         {
-            res.push_back({nums[i]});
-            int tlen = res.size();
-            for(int j = 1; j < tlen-1; j++)
+            for(int j = 1; j < mlen; j++)
             {
-                vector<int> it(res[j]);
-                it.push_back(nums[i]);
-                res.push_back(it);
+                if(((j>>i) & 1) == 1)
+                    res[j].push_back(nums[i]);
             }
         }
         
