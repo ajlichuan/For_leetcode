@@ -1,30 +1,20 @@
 class Solution {
-private:
-    vector<vector<int>> res;
-    vector<int> cell;
-    int len;
-    
-    void findsubset(int n, int st, vector<int>& nums)
-    {
-        for(int i = st; i < len-n+1; i++)
-        {
-            cell.push_back(nums[i]);
-            if(n == 1)
-                res.push_back(cell);
-            else
-                findsubset(n-1,i+1,nums);
-            cell.pop_back();
-        }
-    }
 public:
     vector<vector<int>> subsets(vector<int>& nums) {
+        vector<vector<int>> res;
+        vector<int> cell;
         res.push_back(cell);
-        len = nums.size();
-        if(len == 0) return res;
-        
-        for(int i = 1; i <= len; i++)
+        int len = nums.size();
+        for(int i = 0; i < len; i++)
         {
-            findsubset(i,0,nums);
+            res.push_back({nums[i]});
+            int tlen = res.size();
+            for(int j = 1; j < tlen-1; j++)
+            {
+                vector<int> it(res[j]);
+                it.push_back(nums[i]);
+                res.push_back(it);
+            }
         }
         
         return res;
