@@ -4,12 +4,18 @@ public:
         sort(citations.begin(), citations.end());
         
         int len = citations.size();
+        if(len == 0 || citations[len-1] == 0) return 0;
         
-        int i;
-        for(i = len-1; i >= 0 ; i--)
-            if(citations[i] < len-i)
-                break;
+        int p1 = 0, p2 = len-1;
+        while(p1 < p2)
+        {
+            int mid = p1 + (p2-p1)/2;
+            if(citations[mid] < len-mid)
+                p1 = mid+1;
+            else
+                p2 = mid;
+        }
         
-        return len-1-i;
+        return len-p1;
     }
 };
