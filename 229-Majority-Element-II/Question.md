@@ -19,6 +19,12 @@ Given an integer array of size _n_, find all elements that appear more than `⌊
 
 <div>
 
+<div id="company_tags" class="btn btn-xs btn-warning">Show Company Tags</div>
+
+<span class="hidebutton">[Zenefits](/company/zenefits/)</span></div>
+
+<div>
+
 <div id="tags" class="btn btn-xs btn-warning">Show Tags</div>
 
 <span class="hidebutton">[Array](/tag/array/)</span></div>
