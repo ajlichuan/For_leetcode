@@ -9,29 +9,11 @@ public:
         
         for(auto n : nums)
         {
-            if(n == x1)
-            {
-                cnt1++;
-            }
-            else if(n == x2)
-            {
-                cnt2++;
-            }
-            else if(cnt1 == 0)
-            {
-                x1 = n;
-                cnt1 = 1;
-            }
-            else if(cnt2 == 0)
-            {
-                x2 = n;
-                cnt2 = 1;
-            }
-            else
-            {
-                cnt1--;
-                cnt2--;
-            }
+            if(n == x1) cnt1++;
+            else if(n == x2) cnt2++;
+            else if(cnt1 == 0) x1 = n, cnt1 = 1;
+            else if(cnt2 == 0) x2 = n, cnt2 = 1;
+            else cnt1--,cnt2--;
         }
         cnt1 = 0; cnt2 = 0;
         for(auto n : nums)
