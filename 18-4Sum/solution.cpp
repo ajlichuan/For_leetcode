@@ -12,7 +12,6 @@ public:
         long sum = target;
         long mini = nums[len-1] + nums[len-2] + nums[len-3];
         long minj = nums[len-1] + nums[len-2];
-        long mink = nums[len-1];
         
         for(int i = 0; i < len-3; i++)
         {
@@ -30,27 +29,19 @@ public:
                 sum -= nums[j];
                 row[1] = nums[j];
                 
-                for(int k = j+1; k < len-1; k++)
+                int k = j+1, l = len-1;
+                while(k<l)
                 {
-                    if(nums[k] > sum/2) break;
-                    if((k != j+1 && nums[k] == nums[k-1]) || nums[k] < sum-mink) continue;
+                    while(k < l && (nums[k]+nums[l] < sum || (k > j+1 && nums[k] == nums[k-1]))) k++;
+                    while(k < l && (nums[k]+nums[l] > sum || (l < len-1 && nums[l] == nums[l+1]))) l--;
                     
-                    sum -= nums[k];
-                    row[2] = nums[k];
-                    
-                    for(int l = k+1; l < len; l++)
+                    if(k < l && nums[k]+nums[l] == sum)
                     {
-                        if(nums[l] == sum)
-                        {
-                            row[3] = nums[l];
-                            res.push_back(row);
-                            break;
-                        }
-                        if(nums[l] > sum)
-                            break;
+                        row[2] = nums[k];
+                        row[3] = nums[l];
+                        res.push_back(row);
                     }
-                    
-                    sum += nums[k];
+                    k++;
                 }
                 
                 sum += nums[j];
