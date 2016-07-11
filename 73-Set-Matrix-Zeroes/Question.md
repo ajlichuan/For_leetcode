@@ -6,7 +6,7 @@ Given a _m_ x _n_ matrix, if an element is 0, set its entire row and column to 0
 
 [click to show follow up.](#)
 
-<div class="spoilers" style="display: none;">**Follow up:**
+<div class="spoilers" style="display: block;">**Follow up:**
 
 Did you use extra space?  
 A straight forward solution using O(_m__n_) space is probably a bad idea.  
