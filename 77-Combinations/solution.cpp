@@ -1,32 +1,22 @@
 class Solution {
 public:
     vector<vector<int>> combine(int n, int k) {
-        vector<int> cell(k,0);
-        vector<vector<int>> res;
-        
-        for(int i = 0; i < k; i++)
-        {
-            cell[i] = i+1;
-        }
-        res.push_back(cell);
-        
-        while(true)
-        {
-            int i;
-            for(i = 0; i < k; i++)
-            {
-                if(++cell[k-1-i] <= n-i)
-                    break;
-            }
-            if(i == k) break;
-            for(--i; i>=0; i--)
-            {
-                cell[k-1-i] = cell[k-2-i]+1;
-            }
-            
-            res.push_back(cell);
-        }
-        
-        return res;
+        vector<vector<int>> ans;
+        vector<int> temp;
+        combine(1,n,k,ans,temp); //call fuction to get combination of k numbers which range is 1-n
+        return ans;
     }
+private:
+       void combine(int begin,int n, int k, vector<vector<int>> &ans, vector<int>& temp){
+            if(k==0){ 
+                ans.push_back(temp);
+                return;
+            } 
+            //condition : n-i+1 is the range, range must greater than k
+            for(int i=begin;n-i+1>=k;i++){ // for the ith iteration, get the combination of i and k-1 numbers differ from i.
+                temp.push_back(i); 
+                combine(i+1,n,k-1,ans,temp);// get the combination of k-1 numbers which range is(i+1,n) 
+                temp.pop_back();
+            }
+        }
 };
